@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traveleader</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="/assets/js/script.js"></script>
+</head>
+<body>
+    <div class="header">
+        <img src="/assets/images/Tripadvisor_lockup_horizontal_secondary_registered.svg" alt="Tripadvisor logo" class="logo">
+        <div class="Search">
+            <span class="icon">🔍</span>
+            <input type="text" placeholder="Search">
+        </div>
+        <div class="header_button">
+            <button class="Discover">
+                Discover
+            </button>
+            <button class="Trips">
+                Trips
+            </button>
+            <button class="Review">
+                Review
+            </button>
+            <button class="icon">
+                🌐
+            </button>
+            <div class="divider"></div>
+            <button class="CAD">
+                CAD
+            </button>
+            <button class="SignIn">
+                Sign In
+            </button>
+        </div>
+    </div>
+    <div class="navbar">
+        <button class="nav_item">
+            Hotels
+        </button>
+        <button class="nav_item">
+            HĐVH
+        </button>
+        <button class="nav_item">
+            Đặc Sản
+        </button>
+        <button class="nav_item" onclick="goToTransport()">
+            Phương Tiện
+        </button>
+        <button class="nav_item">
+            Vacation Rentals
+        </button>
+        <button class="nav_item">
+            Cruises
+        </button>
+        <button class="nav_item">
+            Rental Cars
+        </button>
+        <button class="nav_item">
+            Forums
+        </button>
+        
+    </div>
+    <div class="bottom-line"></div>
+    <br>
+    <div class="hero-section">
+        <img src="/assets/images/84fe7b24-cdaa-4215-9f14-4db718b02452.png" alt="Best Beaches">
+        <div class="hero-text">
+          <h3>Travellers’ Choice Awards</h3>
+          <h1>Best of the Best Beaches</h1>
+        </div>
+    </div>
+    <div >
+        <div class="region-filter">
+          <button>World</button>
+          <button>United States</button>
+          <button>Europe</button>
+          <button>Caribbean</button>
+          <button>🥂Tripadvisor's 25th Anniversary</button>
+          <button>Asia</button>
+          <button>Mexico</button>
+          <button>South America</button>
+          <button>Africa</button>
+          <button>South Pacific</button>
+        </div>
+    </div>
+    <h2>Khách sạn nổi bật:</h2>
+  <div class="carousel-container">
+    <button class="nav-arrow nav-left" onclick="scrollCarousel(this, -1)">&#8592;</button>
+    <div class="destination-wrapper">
+      <div class="card">
+        <img src="https://pix10.agoda.net/hotelImages/489877/-1/d0057dd134ce9d2a036d6213c1ced4b8.jpg?ca=10&ce=1&s=414x232&ar=16x9" alt="Asia">
+        <div class="overlay"><div class="arrow">→</div></div>
+        <div class="label">Holiday Beach Danang Hotel & Resort</div>
+      </div>
+      <div class="card">
+        <img src="https://cdn3.ivivu.com/2017/02/nghi-duong-3n2d-tai-Grand-Mercure-Danang-gom-ve-may-bay-ivivu-1.jpg" alt="Europe">
+        <div class="overlay"><div class="arrow">→</div></div>
+        <div class="label">Grand Mercure Danang</div>
+      </div>
+      <div class="card">
+        <img src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/13/45/5b/muong-thanh-da-nang-hotel.jpg?w=900&h=500&s=1" alt="South Pacific">
+        <div class="overlay"><div class="arrow">→</div></div>
+        <div class="label">Khách sạn Mường Thanh Đà Nẵng</div>
+      </div>
+      <div class="card">
+        <img src="https://du-lich.chudu24.com/f/m/2105/19/khach-san-golden-bay-da-nang-2.jpg" alt="Caribbean">
+        <div class="overlay"><div class="arrow">→</div></div>
+        <div class="label">Khách sạn Golden Bay Đà Nẵng</div>
+      </div>
+    </div>
+    <button class="nav-arrow nav-right" onclick="scrollCarousel(this, 1)">&#8594;</button>
+  </div>
+
+  <h2>Những danh lam thắng cảnh:</h2>
+  <div class="carousel-container">
+    <button class="nav-arrow nav-left" onclick="scrollCarousel(this, -1)">&#8592;</button>
+    <div class="destination-wrapper">
+      <div class="card">
+        <img src="https://hn.ss.bfcplatform.vn/tckt/2022/12/22A12017-4.jpg" alt="Asia">
+        <div class="overlay"><div class="arrow">→</div></div>
+        <div class="label">Đèo Hải Vân</div>
+      </div>
+      <div class="card">
+        <img src="https://drt.danang.vn/content/images/2024/01/thac-ba-do-phot-1.jpg" alt="Europe">
+        <div class="overlay"><div class="arrow">→</div></div>
+        <div class="label">Thác Ba Đờ Phọt</div>
+      </div>
+      <div class="card">
+        <img src="https://images.vietnamtourism.gov.vn/vn/images/2022/ngu_hanh_son_da_nang_369258062.jpg" alt="South Pacific">
+        <div class="overlay"><div class="arrow">→</div></div>
+        <div class="label">Ngũ Hành Sơn</div>
+      </div>
+      <div class="card">
+        <img src="https://nuithantai.vn/Content/theme/images/bg-nui-than-tai-full.jpg" alt="Caribbean">
+        <div class="overlay"><div class="arrow">→</div></div>
+        <div class="label">Núi Thần Tài</div>
+      </div>
+    </div>
+    <button class="nav-arrow nav-right" onclick="scrollCarousel(this, 1)">&#8594;</button>
+  </div>
+
+  <h2>Những hoạt động văn hóa:</h2>
+  <div class="carousel-container">
+    <button class="nav-arrow nav-left" onclick="scrollCarousel(this, -1)">&#8592;</button>
+    <div class="destination-wrapper">
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMYZsHEE1Ris5zl9o2sT8Zpt9cNxsJJZRIkQ&s" alt="Asia">
+        <div class="overlay"><div class="arrow">→</div></div>
+        <div class="label">Lễ hội Thần Tài</div>
+      </div>
+      <div class="card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvidN4MCdZaQd-cIJuLeOcGtxPoGLbscAYRQ&s" alt="Europe">
+        <div class="overlay"><div class="arrow">→</div></div>
+        <div class="label">Lễ hội Đình làng Túy Loan</div>
+      </div>
+      <div class="card">
+        <img src="https://nads.1cdn.vn/2024/02/27/W_8.jpg" alt="South Pacific">
+        <div class="overlay"><div class="arrow">→</div></div>
+        <div class="label">Lễ hội Cầu Ngư</div>
+      </div>
+      <div class="card">
+        <img src="https://banahills.sunworld.vn/wp-content/uploads/2019/12/IMG_6098-2-1024x638.jpg" alt="Caribbean">
+        <div class="overlay"><div class="arrow">→</div></div>
+        <div class="label">Lễ hội hoa – Sun World Bà Nà Hills</div>
+      </div>
+    </div>
+    <button class="nav-arrow nav-right" onclick="scrollCarousel(this, 1)">&#8594;</button>
+  </div>
+</body>
+</html>
