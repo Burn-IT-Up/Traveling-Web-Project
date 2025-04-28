@@ -1,12 +1,235 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Traveleader</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <script src="/assets/js/script.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trip Spotlight</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body, html {
+      height: 100%;
+      width: 100%;
+    }
+
+    .trip-spotlight {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .slider {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .slides {
+      display: flex;
+      width: 600%;
+      height: 100%;
+      transition: transform 0.5s ease;
+    }
+
+    .slide, .slide-active {
+      flex: 1 0 100%;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .search-bar {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: white;
+      padding: 20px;
+      border-radius: 50px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      max-width: 1000px;
+      width: 90%;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
+      z-index: 2;
+    }
+
+    .search-input {
+      display: flex;
+      align-items: center;
+      margin: 10px;
+      padding: 10px 20px;
+      background: #f5f5f5;
+      border-radius: 30px;
+      flex: 1;
+      min-width: 250px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .search-input input {
+      border: none;
+      background: none;
+      outline: none;
+      margin-left: 10px;
+      width: 100%;
+      font-size: 16px;
+      pointer-events: none;
+    }
+
+    .search-button {
+      background-color: #d4ff00;
+      border: none;
+      border-radius: 30px;
+      padding: 15px 30px;
+      font-weight: bold;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .search-button:hover {
+      background-color: #c1eb00;
+    }
+
+    .region-popup {
+      display: none;
+      position: absolute;
+      top: 70px;
+      left: 0;
+      right: 0;
+      background: white;
+      padding: 20px;
+      border-radius: 30px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.3);
+      z-index: 10;
+    }
+
+    .region-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .region-header h2 {
+      font-size: 24px;
+      font-weight: normal;
+      display: flex;
+      align-items: center;
+    }
+
+    .region-header button {
+      background: none;
+      border: none;
+      font-weight: bold;
+      font-size: 16px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .region-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .region-item {
+      display: flex;
+      align-items: center;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .region-icon {
+      background: #d4ff00;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+
+    @media (max-width: 768px) {
+      .region-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  <script>
+    function toggleRegionPopup() {
+      var popup = document.getElementById('regionPopup');
+      popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+    }
+
+    function selectRegion(name) {
+      document.getElementById('whereInput').value = name;
+      toggleRegionPopup();
+    }
+  </script>
 </head>
 <body>
-    
+
+<div class="trip-spotlight">
+  <div class="slider">
+    <div class="slides">
+      <div class="slide-active" style="background-image: url(/assets/images/HAPanel1.jpg);"></div>
+      <div class="slide" style="background-image: url(/assets/images/activeSlide.png);"></div>
+      <div class="slide" style="background-image: url(/assets/images/MyKhe.png);"></div>
+      <div class="slide" style="background-image: url(/assets/images/hue-city-5151869.jpg);"></div>
+      <div class="slide" style="background-image: url(/assets/images/PhongNhaKeBangFixed.png);"></div>
+      <div class="slide" style="background-image: url(/assets/images/HAPanel1.jpg);"></div>
+    </div>
+  </div>
+
+  <form class="search-bar">
+    <div class="search-input" onclick="toggleRegionPopup()">
+      <span>📍</span>
+      <input id="whereInput" type="text" placeholder="Where do you want to go?" readonly>
+      <div id="regionPopup" class="region-popup">
+        <div class="region-header">
+          <h2><span>&larr;</span> Select a region</h2>
+          <div>
+            <button type="button" onclick="document.getElementById('whereInput').value='';">RESET</button>
+            <button type="button" onclick="toggleRegionPopup()">APPLY (0)</button>
+          </div>
+        </div>
+        <div class="region-grid">
+          <div class="region-item" onclick="selectRegion('Any Region')"><div class="region-icon">🌍</div>Any Region</div>
+          <div class="region-item" onclick="selectRegion('Europe')"><div class="region-icon">🧭</div>Europe</div>
+          <div class="region-item" onclick="selectRegion('Africa & Middle East')"><div class="region-icon">🌍</div>Africa & Middle East</div>
+          <div class="region-item" onclick="selectRegion('Asia')"><div class="region-icon">🌏</div>Asia</div>
+          <div class="region-item" onclick="selectRegion('Australia & New Zealand')"><div class="region-icon">🌐</div>Australia & New Zealand</div>
+          <div class="region-item" onclick="selectRegion('USA & Canada')"><div class="region-icon">🌎</div>USA & Canada</div>
+          <div class="region-item" onclick="selectRegion('Latin America')"><div class="region-icon">🌎</div>Latin America</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="search-input">
+      <span>📊</span>
+      <input type="text" placeholder="What do you want to see?">
+    </div>
+    <div class="search-input">
+      <span>📅</span>
+      <input type="text" placeholder="When do you want to go?">
+    </div>
+    <button class="search-button" type="submit">SEARCH</button>
+  </form>
+
+  <button class="prev-btn">❮</button>
+  <button class="next-btn">❯</button>
+</div>
+
 </body>
+</html>
