@@ -46,6 +46,37 @@ document.addEventListener('DOMContentLoaded', () => {
       updateSlider();
   }, 8000);
 
-
   initSlider();
+
+  const whereInputWrapper = document.getElementById('whereInputWrapper');
+  const regionPopup = document.getElementById('regionPopup');
+  const whereInput = document.getElementById('whereInput');
+
+  if (whereInputWrapper && regionPopup && whereInput) {
+    whereInputWrapper.addEventListener('click', (e) => {
+      regionPopup.style.display = 'block';
+      e.stopPropagation();
+    });
+
+    document.addEventListener('click', () => {
+      regionPopup.style.display = 'none';
+    });
+
+    regionPopup.addEventListener('click', (e) => {
+      e.stopPropagation();
+    });
+
+    const regionItems = regionPopup.querySelectorAll('.region-item');
+    regionItems.forEach(item => {
+      item.addEventListener('click', function() {
+        const icon = this.querySelector('.region-icon');
+        let value = this.textContent.trim();
+        if (icon) {
+          value = value.replace(icon.textContent, '').trim();
+        }
+        whereInput.value = value;
+        regionPopup.style.display = 'none';
+      });
+    });
+  }
 });
