@@ -16,7 +16,7 @@ This is Project for BWD by Nhat Minh, Ngoc Thai, Tuan Anh, Van Khanh
 - Thêm `.gitkeep` nếu cần đẩy thư mục rỗng
 - Tách biệt html và PHP theo sơ đồ cấu trúc bên trên
 - Luôn Pull code trước khi Push để tránh xảy ra Conflict
-#Cách xử lý file lớn khi up lên repo git
+# Cách xử lý file lớn khi up lên repo git
 - Open git bash : git lfs install
 - Đăng ký các file lớn, ví dụ: mp4, zip : git lfs track "*.zip", git lfs track "*.mp4"
 - git add .gitattributes
